@@ -13,8 +13,9 @@ def print_sorted_list():
         print("why not")
 # function to replace someone
 def replace():
-    print("hello")
-
+    guests.remove(input("Who do you want to replace? "))
+    guests.append(input("Who's the new guest? "))
+    print_sorted_list()
 # Ask user for amount of guests they want to invite 
 num_of_guests = int(input("How many guests do you want to invite?\n"))
 
