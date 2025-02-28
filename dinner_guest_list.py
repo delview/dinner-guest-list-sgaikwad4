@@ -6,17 +6,28 @@ def print_sorted_list():
     guests.sort()
     for guest in guests:
         print(f"Here are the guests: {guest}")
-    choice = input("Do you want to [R]eplace someone or send [I]]nvitations?").strip().title()
-    if choice == "R":
-        replace()
-    elif choice == "I":
-        print("invitations have been sent")
+    
+    while True:
+        choice = input("\nDo you want to [R]eplace someone or send [I]]nvitations?").strip().title()
+        if choice == "R":
+            replace()
+            break
+        elif choice == "I":
+            print("invitations have been sent")
+            break
+        else:
+            print("Please enter a valid answer")
 
 # function to replace someone
 def replace():
-    guests.remove(input("Who do you want to replace? "))
-    guests.append(input("Who's the new guest? "))
-    print_sorted_list()
+    while True:
+        try:
+            guests.remove(input("Who do you want to replace? "))
+            guests.append(input("Who's the new guest? "))
+            print_sorted_list()
+            break
+        except:
+            print("The name you entered was not found in the list")
 
 # Ask user for amount of guests they want to invite 
 while True:
