@@ -5,24 +5,28 @@ guests = []
 def print_sorted_list():
     guests.sort()
     for guest in guests:
-        print(guest)
-    choice = input("Do you want to replace someone? [y]es or [n]o? ")
-    if choice == "y":
+        print(f"Here are the guests: {guest}")
+    choice = input("Do you want to [R]eplace someone or send [I]]nvitations?").strip().title()
+    if choice == "R":
         replace()
-    else:
-        print("why not")
+    elif choice == "I":
+        print("invitations have been sent")
+
 # function to replace someone
 def replace():
     guests.remove(input("Who do you want to replace? "))
     guests.append(input("Who's the new guest? "))
     print_sorted_list()
-# Ask user for amount of guests they want to invite 
-num_of_guests = int(input("How many guests do you want to invite?\n"))
 
+# Ask user for amount of guests they want to invite 
+while True:
+    try:
+        num_of_guests = int(input("How many guests do you want to invite?\n").strip())
+        break
+    except ValueError:
+        print("Please enter a number")
 # Create loop that will keep apending names to the list until the limit is met
 for guest in range(num_of_guests):
     guest = input(f"Enter the name of guest #{guest+1}: ")
     guests.append(guest)
 print_sorted_list()
-
-
