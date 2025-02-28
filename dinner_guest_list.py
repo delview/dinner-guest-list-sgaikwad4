@@ -13,7 +13,7 @@ def print_sorted_list():
             replace()
             break
         elif choice == "I":
-            print("invitations have been sent")
+            send_invitations()
             break
         else:
             print("Please enter a valid answer")
@@ -28,6 +28,11 @@ def replace():
             break
         except:
             print("The name you entered was not found in the list")
+
+def send_invitations():
+    for guest in guests:
+        print(f"Hello {guest}. You have been invitated for dinner")
+    
 
 # Ask user for amount of guests they want to invite 
 while True:
