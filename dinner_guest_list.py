@@ -6,7 +6,6 @@ def print_sorted_list():
     guests.sort()
     for guest in guests:
         print(f"Here are the guests: {guest}")
-    
     while True:
         choice = input("\nDo you want to [R]emove or [A]dd a person or send [I]]nvitations?").strip().title()
         if choice == "R":
