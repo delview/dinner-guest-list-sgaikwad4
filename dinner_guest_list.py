@@ -13,14 +13,15 @@ def print_sorted_list():
             remove()
             break
         elif choice == "A":
-            pass
+            add()
+            break
         elif choice == "I":
             send_invitations()
             break
         else:
             print("Please enter a valid answer")
 
-# function to replace someone
+# function to remove someone
 def remove():
     while True:
         try:
@@ -31,12 +32,16 @@ def remove():
         except:
             print("The name you entered was not found in the list")
 
+# function to add someone
+def add():
+    guests.append(input("Who's the new guest? \n").strip().title())
+    print_sorted_list()
+
+# function to send invitations
 def send_invitations():
     for guest in guests:
         print(f"Hello {guest}. You have been invitated for dinner")
     
-    
-
 # Ask user for amount of guests they want to invite 
 while True:
     try:
